@@ -4,8 +4,8 @@ import requests
 app = Flask(__name__)
 
 # 填写你的 Telegram 机器人的 Token 和 Chat ID
-TELEGRAM_TOKEN = "7683776163:AAHCto8eY9F6sHdlR6e5DhZ6E3TkAA7otQY"  # 替换成你的 Token
-TELEGRAM_CHAT_ID = "425967805"       # 替换成你的 Chat ID
+TELEGRAM_TOKEN = "YOUR_TELEGRAM_TOKEN"  # 替换成你的 Token
+TELEGRAM_CHAT_ID = "YOUR_CHAT_ID"       # 替换成你的 Chat ID
 
 @app.route('/api', methods=['POST'])
 def handle_webhook():
