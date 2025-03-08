@@ -1,8 +1,8 @@
-from flask import Flask, request
+from flask import Flask, request  # 确保 Flask 导入
 import requests
 import os
 
-# 初始化 Flask 应用实例
+# 初始化 Flask 应用实例（必须放在所有路由装饰器之前！）
 app = Flask(__name__)
 
 # 从环境变量读取配置
@@ -15,9 +15,9 @@ def handle_webhook():
         data = request.json
         message = data.get('message', '默认提醒：买入信号触发！')
         
-        # 检查环境变量
+        # 检查环境变量是否有效
         if not TELEGRAM_TOKEN or not TELEGRAM_CHAT_ID:
-            return "错误：Telegram Token 或 Chat ID 未设置！", 500
+            return "错误：Telegram Token 或 Chat ID 未设置", 500
         
         telegram_url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
         response = requests.post(
